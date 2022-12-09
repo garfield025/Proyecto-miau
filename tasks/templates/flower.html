@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+
+        <!-- Blog Entries Column -->
+        <div class="col-md-8">
+            <h1 class="my-4">
+                <img height="128px"
+                    src="https://media.istockphoto.com/id/1215337728/vector/lovely-simple-design-of-a-yellow-and-black-bee-vector-illustration-on-a-white-background.jpg?s=612x612&w=0&k=20&c=l_LbRpSxE2BUu9kduiuKYb5w83jWfowXaGwoi84gBWs="
+                    alt="Share a Flower">
+                Share a flower
+            </h1>
+        </div>
+
+
+        <div class="card mb-4">
+            <!--Puede cambiar-->
+            <div class="card-body">
+                <h2 class="card-title">Extract some nectar!</h2>
+                <p class="card-text">
+                    Show me a flower and I'll track down the pollen and nectar.
+                </p>
+                <form action="/flower/" method="POST" enctype="multipart/form-data">
+                    <div class="input-grup">
+                        <tr>
+                            <th></th>
+                            <td><input type="file" name="flower" required id="id_flower"></td>
+                        </tr>
+                        <span class="input-group-btn">
+                            <button class="btn btn-secondary" type="submit">Buzz!</button>
+                        </span>
+                        {% csrf_token %}
+                    </div>
+                </form>
+                <br>
+                <hr>
+
+                <div class="alert alert-danger" role="alert"><b>Sorry! </b>This doesn't like a flower we know how to
+                    extract
+                    from...<b></b></div>
+
+                <!-- Sidebar Widgets Column -->
+                <div class="col-md-4">
+                    <!-- Search Widget -->
+                    <h5 class="card-header">Recent Nectar</h5>
+                    <iframe style="min-height:100%" margin: 0 0;* src="/nectar/"> </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+
+<!-- Footer -->
+<footer class="py-3 bg-dark footer">
+    <div class="container">
+        &nbsp;
+    </div>
+    <!-- /.container -->
+</footer>
+
+{% endblock %}
